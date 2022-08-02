@@ -1,15 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import AboutView from "../view/AboutView.vue";
+import AboutView from "../views/AboutView.vue";
 import SignupView from "../views/SignupView.vue";
-import LoginView from "../views/LoginView.vue"
-
+import LoginView from "../views/LoginView.vue";
+import LogoutView from "../views/LogoutView.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    component: LoginView,
   },
   {
     path: "/about",
@@ -26,12 +25,11 @@ const routes = [
     name: "login",
     component: LoginView,
   },
-];
-
-const routes = [
-  { path: "/", name: "home", component: HomeView },
-  { path: "/about", name: "about", component: AboutView },
-  { path: "/signup", name: "signup", component: SignupView },
+  {
+    path: "/logout",
+    name: "logout",
+    component: LogoutView,
+  },
 ];
 
 const router = createRouter({

@@ -1,27 +1,27 @@
 <script>
-  import axios from "axios";
+import axios from "axios";
 
-  export default {
-    data: function () {
-      return {
-        newUserParams: {},
-        errors: [],
-      };
+export default {
+  data: function () {
+    return {
+      newUserParams: {},
+      errors: [],
+    };
+  },
+  methods: {
+    submit: function () {
+      axios
+        .post("/users", this.newUserParams)
+        .then((response) => {
+          console.log(response.data);
+          this.$router.push("/login");
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
     },
-    methods: {
-      submit: function () {
-        axios
-          .post("/users", this.newUserParams)
-          .then((response) => {
-            console.log(response.data);
-            this.$router.push("/login");
-          })
-          .catch((error) => {
-            this.errors = error.response.data.errors;
-          });
-      },
-    },
-  };
+  },
+};
 </script>
 
 <template>
